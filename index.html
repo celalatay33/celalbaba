@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoL Counter & Tier Utility</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body> 
+    <img src="images/1367332.jpeg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <main>
+        <header>
+            <h1>COUNTER PICK VE TIER LIST ANALİZİ</h1>
+        </header>
+
+        <div id="main-tabs">
+            <button class="main-tab-button active" data-tab="counter">COUNTER PICK LİSTESİ</button>
+            <button class="main-tab-button" data-tab="tier">TIER LIST DÜZENLE</button>
+        </div>
+
+        <div id="counter-content" class="content-area active">
+            <h2>Şampiyon Role Seçimi</h2>
+            <nav id="role-selector">
+                <button class="tab-button" data-role="top">TOP</button>
+                <button class="tab-button" data-role="jungle">JUNGLE</button>
+                <button class="tab-button" data-role="mid">MID</button>
+                <button class="tab-button" data-role="adc">ADC</button>
+                <button class="tab-button" data-role="support">SUPPORT</button>
+            </nav>
+            
+            <input type="text" id="champion-search" placeholder="Şampiyon Ara..." disabled>
+            
+            <section id="champion-grid">
+                </section>
+            
+            <section id="result-area">
+                <p>Lütfen bir rol seçin ve counter listesini görmek için bir şampiyona tıklayın.</p>
+            </section>
+            
+            <section id="lore-area">
+                </section>
+        </div>
+
+        <div id="tier-content" class="content-area">
+            <h2>TIER LIST DÜZENLEYİCİ <i class="fas fa-edit"></i></h2>
+            <p class="info-text">İkonları sürükleyip bırakarak Tier List'inizi oluşturun. Veriler tarayıcınızda otomatik kaydedilir.</p>
+            
+            <nav id="tier-role-selector">
+                <button class="tier-role-button active" data-role="top">TOP</button>
+                <button class="tier-role-button" data-role="jungle">JUNGLE</button>
+                <button class="tier-role-button" data-role="mid">MID</button>
+                <button class="tier-role-button" data-role="adc">ADC</button>
+                <button class="tier-role-button" data-role="support">SUPPORT</button>
+            </nav>
+
+            <div id="tier-list-editor">
+                <div class="tier-row" data-tier="S+">
+                    <div class="tier-label tier-s-plus">S+ TIER</div>
+                    <div class="tier-drop-zone" data-tier="S+"></div>
+                </div>
+                <div class="tier-row" data-tier="S">
+                    <div class="tier-label tier-s">S TIER</div>
+                    <div class="tier-drop-zone" data-tier="S"></div>
+                </div>
+                <div class="tier-row" data-tier="A">
+                    <div class="tier-label tier-a">A TIER</div>
+                    <div class="tier-drop-zone" data-tier="A"></div>
+                </div>
+                <div class="tier-row" data-tier="B">
+                    <div class="tier-label tier-b">B TIER</div>
+                    <div class="tier-drop-zone" data-tier="B"></div>
+                </div>
+                <div class="tier-row" data-tier="C">
+                    <div class="tier-label tier-c">C TIER</div>
+                    <div class="tier-drop-zone" data-tier="C"></div>
+                </div>
+                <div class="tier-row" data-tier="D">
+                    <div class="tier-label tier-d">D TIER</div>
+                    <div class="tier-drop-zone" data-tier="D"></div>
+                </div>
+            </div>
+
+            <h3>Kullanılabilir Şampiyonlar (Sürükle-Bırak)</h3>
+            <div id="tier-champion-pool" class="tier-drop-zone" data-tier="POOL">
+                </div>
+            
+            <button id="reset-tier-list">Tier List'i Sıfırla</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Counter Pick List | Tüm veriler Riot Games API ve meta analizlere dayanmaktadır.</p>
+    </footer>
+
+    <div id="modal-container">
+        <div id="modal-content">
+            <button id="close-modal">&times;</button>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

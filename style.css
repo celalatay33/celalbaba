@@ -1,0 +1,464 @@
+/* style.css - NİHAİ ŞIK TASARIM */
+
+:root {
+    --color-dark-bg: #000024;     /* ANA ARKA PLAN: Çok Koyu Lacivert/Siyah */
+    --color-dark-main: #1c1c3c;   /* Kart Arka Planı */
+    --color-accent: #ffd700;      /* SAF ALTIN Vurgu */
+    --color-secondary-accent: #ffd700; 
+    --color-text: #ffd700;        /* SAF ALTIN Metin rengi */
+    --color-shadow: #ffd700;      
+    
+    /* TIER RENKLERİ */
+    --color-tier-s-plus: #e50000; 
+    --color-tier-s: #ff4500;
+    --color-tier-a: #00bfff;
+    --color-tier-b: #9acd32;
+    --color-tier-c: #ffd700;
+    --color-tier-d: #808080;
+}
+
+/* GENEL STİL VE ZEMİN */
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--color-text); 
+    margin: 0;
+    padding: 0; 
+    text-align: center;
+    line-height: 1.6;
+    
+    /* ARKA PLAN AYARLARI */
+    background-color: var(--color-dark-bg);
+    background-image: url('images/hakan61.png'); /* PNG dosyanızın yolu */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+main {
+    padding: 20px;
+    min-height: 100vh;
+}
+
+header {
+    padding: 10px 0 30px;
+    border-bottom: 2px solid var(--color-accent);
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 36, 0.7); 
+}
+
+h1 {
+    color: var(--color-text);
+    text-shadow: 0 0 10px var(--color-shadow); 
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+/* YENİ: ARAMA ÇUBUĞU STİLİ */
+#champion-search {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    background-color: var(--color-dark-main);
+    color: var(--color-text);
+    border: 2px solid var(--color-accent);
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s;
+}
+
+#champion-search:focus {
+    border-color: var(--color-secondary-accent);
+}
+
+/* YENİ: MODAL STİLLERİ */
+#modal-container {
+    display: none; 
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); 
+    backdrop-filter: blur(5px); 
+}
+
+#modal-content {
+    background-color: var(--color-dark-main);
+    margin: 10% auto;
+    padding: 30px;
+    border: 3px solid var(--color-accent);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 650px; 
+    position: relative;
+    box-shadow: 0 0 30px var(--color-shadow);
+}
+
+#close-modal {
+    color: var(--color-text);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#close-modal:hover {
+    color: var(--color-tier-s-plus); 
+}
+
+#modal-body h2 {
+    color: var(--color-text) !important;
+    font-size: 2.2em;
+    margin-top: 0;
+}
+#modal-body h3 {
+    color: var(--color-text) !important;
+    border-bottom: 1px dashed rgba(255, 215, 0, 0.3); 
+    padding-bottom: 5px;
+}
+
+/* MODAL SEKMELERİ VE İÇERİĞİ */
+.modal-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.modal-tab-button {
+    background: none;
+    border: 2px solid var(--color-accent);
+    color: var(--color-text);
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.modal-tab-button.active {
+    background-color: var(--color-accent);
+    color: var(--color-dark-bg) !important;
+}
+
+.modal-content-area {
+    display: none;
+    padding: 10px;
+    text-align: center;
+    min-height: 250px; /* İçerik geçişlerinde kaymayı engellemek için */
+}
+
+.modal-content-area.active {
+    display: block;
+}
+
+/* İÇERİK BÖLÜMÜ GÖSTER/GİZLE MANTIĞI */
+.content-area {
+    display: none; 
+    padding-top: 20px;
+    background-color: rgba(28, 28, 60, 0.85); 
+    border: 1px solid var(--color-accent);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    max-width: 1200px; 
+    margin: 0 auto 30px auto;
+}
+.content-area.active {
+    display: block;
+}
+
+
+/* ANA MENÜ SEKMELERİ */
+#main-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.main-tab-button {
+    background-color: var(--color-dark-main);
+    color: var(--color-text); 
+    border: 2px solid var(--color-accent);
+    padding: 12px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+    border-radius: 8px;
+    margin: 0 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.main-tab-button.active {
+    background-color: var(--color-accent); 
+    color: var(--color-dark-bg) !important; 
+    border-color: var(--color-secondary-accent);
+    box-shadow: 0 0 20px var(--color-shadow);
+}
+
+
+/* ROL BUTONLARI */
+#role-selector, #tier-role-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; 
+}
+
+.tab-button, .tier-role-button {
+    background-color: var(--color-dark-main);
+    color: var(--color-text); 
+    border: 2px solid var(--color-accent);
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.tab-button.active, .tier-role-button.active {
+    background-color: var(--color-accent); 
+    color: var(--color-dark-bg) !important; 
+    border-color: var(--color-secondary-accent);
+    box-shadow: 0 0 15px var(--color-shadow);
+}
+
+/* Şampiyon İkonları Alanı (COUNTER GRİD) */
+#champion-grid {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px; 
+    transition: max-height 0.5s ease-in-out; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto 50px auto; 
+    background-color: rgba(28, 28, 60, 0.4); 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--color-shadow), inset 0 0 10px rgba(0, 0, 0, 0.5);
+    min-height: 0;
+}
+#champion-grid.grid-active {
+    max-height: 4000px; 
+    padding: 20px 20px 0 20px; 
+}
+
+/* Şampiyon İkonları ve İsimleri */
+.champ-item-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    margin-bottom: 25px; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.champ-icon {
+    width: 65px; 
+    height: 65px;
+    border: 3px solid var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--color-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.champ-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.champ-item-container:hover .champ-icon {
+    transform: scale(1.15); 
+    box-shadow: 0 0 20px var(--color-shadow); 
+    border-color: var(--color-secondary-accent);
+}
+
+.champ-item-container span {
+    margin-top: 5px; 
+    font-size: 0.9em;
+    color: var(--color-text) !important; 
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+/* COUNTER LİSTESİ (3 ÜSTTE / 2 ALTTA DÜZENİ) */
+.counter-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 25px 35px; 
+    margin-top: 30px;
+    max-width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.counter-card {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;
+    width: 100px; 
+    overflow: hidden; 
+}
+
+.counter-card img {
+    width: 80px; 
+    height: 80px;
+    border-radius: 50%;
+    border: 5px solid var(--color-secondary-accent); 
+    box-shadow: 0 0 10px var(--color-shadow);
+    transition: transform 0.3s;
+    transform: scale(1.0); 
+    position: relative; 
+    z-index: 1; 
+}
+
+.counter-card span {
+    margin-top: 8px;
+    color: var(--color-text); 
+    font-size: 1em;
+    font-weight: bold;
+    word-break: break-word; 
+    max-width: 100px; 
+}
+
+/* YENİ: BUILD KARTI STİLİ */
+.build-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 15px; 
+    padding: 10px;
+}
+
+.build-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90px;
+    background-color: rgba(28, 28, 60, 0.7);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.build-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+.build-card span {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--color-text);
+}
+
+
+/* TIER LIST DÜZENLEYİCİ STİLLERİ */
+#tier-list-editor {
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    border: 1px solid var(--color-accent);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--color-dark-main);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.tier-row {
+    display: flex;
+    align-items: stretch;
+    min-height: 100px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.tier-label {
+    width: 100px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--color-dark-bg);
+    border-right: 2px solid rgba(255, 215, 0, 0.5);
+    padding: 10px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* TIER BASAMAKLARI VE RENKLERİ */
+.tier-s-plus { background-color: var(--color-tier-s-plus); color: white !important; }
+.tier-s { background-color: var(--color-tier-s); }
+.tier-a { background-color: var(--color-tier-a); }
+.tier-b { background-color: var(--color-tier-b); }
+.tier-c { background-color: var(--color-tier-c); }
+.tier-d { background-color: var(--color-tier-d); }
+
+
+.tier-drop-zone {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    min-height: 80px;
+    transition: background-color 0.2s;
+}
+
+/* Tier Şampiyon İkonları */
+.tier-champ-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    text-align: center;
+    cursor: grab;
+    transition: opacity 0.2s;
+}
+
+.tier-champ-icon img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--color-text);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    color: var(--color-text);
+    font-size: 0.9em;
+}
